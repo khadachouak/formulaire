@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>inscri</title>
+</head>
+<body>
+
+    <hr>
+        <form action="">
+            <fieldset width="0%">
+                <legend>
+                    <h1>Formulaire</h1>
+                </legend>
+                <table width="30%">
+                    <tr>
+                        <td>
+                            <b><label for="nom">nom:</label></b>
+                        </td>
+                        <td>
+                            <input id="nom" type="text" placeholder="entrer votre nom" required minlength="3">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <b><label for="prénom">prénom:</label></b>
+                        </td>
+                        <td>
+                            <input id="prénom" type="text" placeholder="entrer votre prénom" required minlength="3">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <b><label for="e-mail">e-mail:</label></b>
+                        </td>
+                        <td>
+                            <input type="email" name="email" id="email">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <b><label for="num">numero de telephone:</label></b>
+                        </td>
+                        <td>
+                            <input id="num" type="number" placeholder="Entrer votre numero de telephone" required>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <b><label for="date">Date of birth:</label></b>
+                        </td>
+                        <td>
+                            <input id="date" type="date">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <b><label for="pass">motdepasse:</label></b
+                        </td>
+                        <td>
+                            <input id="pass" type="password" placeholder="Entrer votre motdepasse" 
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <b><label for="cnfpass">Confirmer motdepasse:</label></b>
+                        </td>
+                        <td>
+                            <input id="cnfpass" type="password" required placeholder="Confirmer votre mot de passe  ">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p></p>
+                        </td>
+                        <td>
+                            <button onclick="passvalidation()" type="submit">Submit</button>
+                           
+                        </td>
+                    </tr>
+                </table>
+            </fieldset>
+        </form>
+    
+    <hr>
+    <Script>
+
+        function mail() {
+  
+          function isValidEmail(email) {
+//initialise deux variables atIndex et dotIndex à -1. Ces variables vont contenir les indices du premier caractère "@" et du premier caractère "." dans la chaîne email.
+    let atIndex = -1;
+    let dotIndex = -1;
+    // Elle recherche l'indice de la première occurrence de "@" et de "." en utilisant les variables atIndex et dotIndex. Si l'un ou l'autre de ces caractères n'est pas trouvé dans la chaîne email, les variables restent égales à -1.
+    for (let i = 0; i < email.length; i++) {
+      if (email[i] === "@") {
+        atIndex = i;
+      } else if (email[i] === ".") {
+        dotIndex = i;
+      }
+    }
+    
+    return (atIndex > 0 && dotIndex > atIndex + 1 && dotIndex < email.length - 1);
+  }}
+  function validerMotDePasse(motDePasse) {
+  // Vérifier la longueur du mot de passe
+  if (motDePasse.length < 8 || motDePasse.length > 20) {
+    return false;
+  }
+
+  // Vérifier si le mot de passe contient des chiffres, des lettres majuscules et minuscules et des caractères spéciaux
+  let chiffres = /[0-9]/;
+  if (!chiffres.test(motDePasse)) {
+    return false;
+  }
+
+  let lettresMajuscules = /[A-Z]/;
+  if (!lettresMajuscules.test(motDePasse)) {
+    return false;
+  }
+
+  let lettresMinuscules = /[a-z]/;
+  if (!lettresMinuscules.test(motDePasse)) {
+    return false;
+  }
+
+  let caracteresSpeciaux = /[!@#$%^&*()_+{}[\]|\:;"'<,>.?/\\]/;
+  if (!caracteresSpeciaux.test(motDePasse)) {
+    return false;
+  }
+
+  // Si toutes les vérifications sont passées, retourner vrai
+  return true;
+}
+
+
+
+  
+  
+  
+  
+  
+  </Script>
+    
+
+</body>
+
+</html>
